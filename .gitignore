@@ -1,0 +1,11 @@
+# Local runtime/cache state
+webcache/
+*.log
+*.tmp
+
+# Local release output
+release-build/
+dist/
+*.7z
+*.zip
+

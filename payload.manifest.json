@@ -1,0 +1,20 @@
+{
+  "name": "anthology-game-mechanics",
+  "kind": "game-payload",
+  "source_path": "C:\\Users\\chenc\\Downloads\\Anomaly-1.5.3-Anthology 2.1\\Anomaly-1.5.3-Anthology 2.1",
+  "install_root": "game",
+  "included_roots": [
+    "gamedata",
+    "lib",
+    "res"
+  ],
+  "excluded_roots": [
+    "db",
+    "mods",
+    "profiles",
+    "downloads",
+    "overwrite",
+    "webcache"
+  ],
+  "notes": "This repository is intended for game-folder mechanics delivered through the launcher, not DB or MO2 synchronization."
+}
