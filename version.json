@@ -1,14 +1,14 @@
 {
-  "version": "2026.07.08.1",
+  "version": "2026.07.08.2",
   "notes": "Chernobyl Relay Chat game-payload update.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-f6559aaa2b",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.08.1",
+      "version": "2026.07.08.2",
       "notes": "Chernobyl Relay Chat game-payload update.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.1/anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.1.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.1.zip",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.2/anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.2.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.2.zip",
       "size": 5509246,
       "sha256": "b19d73495e2e4ac23d09aa83082ef250042ce2a5563e2c95e8525dcda97bfbf8",
       "files": [
