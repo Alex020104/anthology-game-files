@@ -1,17 +1,20 @@
 {
-  "version": "2026.07.08.4",
-  "notes": "Chernobyl Relay Chat update test through Alex020104 launcher channel.",
+  "version": "2026.07.09.1",
+  "notes": "Chernobyl Relay Chat full package with executable.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-f6559aaa2b",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.08.4",
-      "notes": "Chernobyl Relay Chat update test through Alex020104 launcher channel.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.4/anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.4.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.08.4.zip",
-      "size": 5509246,
-      "sha256": "b19d73495e2e4ac23d09aa83082ef250042ce2a5563e2c95e8525dcda97bfbf8",
+      "version": "2026.07.09.1",
+      "notes": "Chernobyl Relay Chat full package with executable.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-f6559aaa2b-2026.07.09.1/anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.09.1.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-f6559aaa2b-2026.07.09.1.zip",
+      "size": 6363342,
+      "sha256": "705983f12b9085f0fb3ae4816ccd3a577765d6e35a22d2d73714ffcaf15efb5a",
       "files": [
+        "Chernobyl Relay Chat.exe",
+        "Chernobyl Relay Chat.exe.config",
+        "Chernobyl Relay Chat.pdb",
         "gamedata/configs/crc_input.txt",
         "gamedata/configs/crc_output.txt",
         "lib/GitHubUpdate.1.2.0.0/.signature.p7s",
