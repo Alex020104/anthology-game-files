@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.09.1",
-  "notes": "Chernobyl Relay Chat full package with executable.",
+  "version": "2026.07.15.1",
+  "notes": "Fixed Chernobyl Relay Chat: disabled external CoCRC auto-updater, removed WebBrowser/ActiveX update dialog, enabled safer TLS/network handling.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-f6559aaa2b",
@@ -77,6 +77,20 @@
         "res/localization.xml",
         "res/localization_machine.xml",
         "res/snames.xml"
+      ],
+      "removed_files": []
+    },
+    {
+      "id": "chernobyl-relay-chat-113e2ec459",
+      "name": "Chernobyl Relay Chat",
+      "version": "2026.07.15.1",
+      "notes": "Fixed Chernobyl Relay Chat: disabled external CoCRC auto-updater, removed WebBrowser/ActiveX update dialog, enabled safer TLS/network handling.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-113e2ec459-2026.07.15.1/anthology-game-chernobyl-relay-chat-113e2ec459-2026.07.15.1.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-113e2ec459-2026.07.15.1.zip",
+      "size": 826420,
+      "sha256": "ad2380e3ce5b05921e277496b5dcc82ffdfd5d9b8eeeebd4f627d87df54c0460",
+      "files": [
+        "Chernobyl Relay Chat.exe"
       ],
       "removed_files": []
     }
