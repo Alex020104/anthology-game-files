@@ -1,16 +1,16 @@
 {
-  "version": "2026.07.15.1",
-  "notes": "Fixed Chernobyl Relay Chat for Anthology: disabled external CoCRC auto-updater, removed WebBrowser/ActiveX update dialog, and hardened TLS/network handling.",
+  "version": "2026.07.15.2",
+  "notes": "Chernobyl Relay Chat update: Anthology-styled UI, colored admin/mod roles, Russian display names, and signed owner-key moderation so rights are not tied to nickname spoofing.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.15.1",
-      "notes": "Fixed Chernobyl Relay Chat for Anthology: disabled external CoCRC auto-updater, removed WebBrowser/ActiveX update dialog, and hardened TLS/network handling.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.1/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.1.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.1.zip",
-      "size": 6364815,
-      "sha256": "6e6c785c9bbf29972ce7ac4c0e1b9e1679bcb601b629070bbec0042e92b375d9",
+      "version": "2026.07.15.2",
+      "notes": "Chernobyl Relay Chat update: Anthology-styled UI, colored admin/mod roles, Russian display names, and signed owner-key moderation so rights are not tied to nickname spoofing.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.2/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.2.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.2.zip",
+      "size": 6401062,
+      "sha256": "24c155e36e195041e210ca1ebbecb16f69b442645e1be2d7a4907a429bf31fed",
       "files": [
         "Chernobyl Relay Chat.exe",
         "Chernobyl Relay Chat.exe.config",
