@@ -1,16 +1,16 @@
 {
-  "version": "2026.07.15.3",
-  "notes": "Relay Chat moderation roles now sync from GitHub moderation.json; Hydra_Donnatus is moderator.",
+  "version": "2026.07.15.4",
+  "notes": "Relay Chat hotfix: moderators can broadcast ban/unban actions without owner key; admin/mod rights still sync from moderation.json.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.15.3",
-      "notes": "Relay Chat moderation roles now sync from GitHub moderation.json; Hydra_Donnatus is moderator.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.3/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.3.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.3.zip",
-      "size": 6403578,
-      "sha256": "64177320771e633206f820b2aa222bd9179bf40795b8ae48a2c9a76434dd781d",
+      "version": "2026.07.15.4",
+      "notes": "Relay Chat hotfix: moderators can broadcast ban/unban actions without owner key; admin/mod rights still sync from moderation.json.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.4/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.4.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.4.zip",
+      "size": 6403671,
+      "sha256": "ba385a5529e2465733fc35c35249453e1a0d05f50d2ff485f91622d290fa22f8",
       "files": [
         "Chernobyl Relay Chat.exe",
         "Chernobyl Relay Chat.exe.config",
