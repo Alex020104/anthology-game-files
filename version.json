@@ -1,16 +1,16 @@
 {
-  "version": "2026.07.15.6",
-  "notes": "Relay Chat hotfix: moderation/admin/ban changes are persisted locally and survive chat restart.",
+  "version": "2026.07.15.7",
+  "notes": "Relay Chat hotfix: technical IRC nick is now unique per session while visible player name stays stable, preventing reconnect nickname collisions and duplicate Hydra_ entries.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.15.6",
-      "notes": "Relay Chat hotfix: moderation/admin/ban changes are persisted locally and survive chat restart.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.6/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.6.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.6.zip",
-      "size": 6404169,
-      "sha256": "99a1f6e6086533e7ca1838be332f48d8c35624863edbc9e81d4261f885e6fe4f",
+      "version": "2026.07.15.7",
+      "notes": "Relay Chat hotfix: technical IRC nick is now unique per session while visible player name stays stable, preventing reconnect nickname collisions and duplicate Hydra_ entries.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-e1a7850496-2026.07.15.7/anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.7.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-e1a7850496-2026.07.15.7.zip",
+      "size": 6404418,
+      "sha256": "b3f3c630542d282b7d64b19771750e0909fb79ac4e08d7749a40409c5bcdc159",
       "files": [
         "Chernobyl Relay Chat.exe",
         "Chernobyl Relay Chat.exe.config",
