@@ -1,0 +1,13 @@
+{
+  "guild_id": "PUT_DISCORD_SERVER_ID_HERE",
+  "approved_reactions": ["✅", "📌"],
+  "channels": {
+    "faq": "PUT_FAQ_CHANNEL_ID_HERE",
+    "guides": "PUT_GUIDES_CHANNEL_ID_HERE",
+    "known_errors": "PUT_ERRORS_CHANNEL_ID_HERE",
+    "news": "PUT_NEWS_CHANNEL_ID_HERE"
+  },
+  "max_messages_per_channel": 200,
+  "output_dir": "knowledge/discord"
+}
+

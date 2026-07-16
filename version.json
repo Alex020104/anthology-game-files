@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.15.8",
-  "notes": "Relay Chat update: added GitHub-synced automod autobans via automod.json and /automodsync.",
+  "version": "2026.07.16.1",
+  "notes": "Relay Chat: autoban with visible reasons. AI helper: English answers for English questions and English controls/settings guide.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
@@ -77,6 +77,43 @@
         "res/localization.xml",
         "res/localization_machine.xml",
         "res/snames.xml"
+      ],
+      "removed_files": []
+    },
+    {
+      "id": "chernobyl-relay-chat-ai-helper-7bee15ccf7",
+      "name": "Chernobyl Relay Chat + AI Helper",
+      "version": "2026.07.16.1",
+      "notes": "Relay Chat: autoban with visible reasons. AI helper: English answers for English questions and English controls/settings guide.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1/anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1.zip",
+      "size": 1101017,
+      "sha256": "1a9de286e3b3f16b3249c73a39243d7652f57b00cdc4b247b554e00938e3eae4",
+      "files": [
+        "anthology-ai-helper/discord_bot.py",
+        "anthology-ai-helper/discord_config.example.json",
+        "anthology-ai-helper/knowledge/anomaly_controls_settings_en.md",
+        "anthology-ai-helper/knowledge/anomaly_original_controls_settings.md",
+        "anthology-ai-helper/knowledge/anthology_2_1_overview.md",
+        "anthology-ai-helper/knowledge/faq.md",
+        "anthology-ai-helper/knowledge/installation.md",
+        "anthology-ai-helper/knowledge/mo2_profiles_mcm_hotkeys.md",
+        "anthology-ai-helper/knowledge/performance_and_graphics.md",
+        "anthology-ai-helper/knowledge/profiles_and_modpack.md",
+        "anthology-ai-helper/knowledge/relay_chat.md",
+        "anthology-ai-helper/knowledge/rules.md",
+        "anthology-ai-helper/README.md",
+        "anthology-ai-helper/requirements.txt",
+        "anthology-ai-helper/server.py",
+        "anthology-ai-helper/start_discord_bot.ps1",
+        "anthology-ai-helper/start_helper.ps1",
+        "anthology-ai-helper/sync_discord_knowledge.ps1",
+        "anthology-ai-helper/sync_discord_knowledge.py",
+        "Chernobyl Relay Chat.exe",
+        "Chernobyl Relay Chat.exe.config",
+        "GitHubUpdate.dll",
+        "Meebey.SmartIrc4net.dll",
+        "Octokit.dll"
       ],
       "removed_files": []
     }
