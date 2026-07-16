@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.16.1",
-  "notes": "Relay Chat: autoban with visible reasons. AI helper: English answers for English questions and English controls/settings guide.",
+  "version": "2026.07.16.2",
+  "notes": "Relay Chat: Ratniy built in as admin and banned users are highlighted blue. Includes previous autoban reasons and bilingual AI helper.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
@@ -83,12 +83,12 @@
     {
       "id": "chernobyl-relay-chat-ai-helper-7bee15ccf7",
       "name": "Chernobyl Relay Chat + AI Helper",
-      "version": "2026.07.16.1",
-      "notes": "Relay Chat: autoban with visible reasons. AI helper: English answers for English questions and English controls/settings guide.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1/anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.1.zip",
-      "size": 1101017,
-      "sha256": "1a9de286e3b3f16b3249c73a39243d7652f57b00cdc4b247b554e00938e3eae4",
+      "version": "2026.07.16.2",
+      "notes": "Relay Chat: Ratniy built in as admin and banned users are highlighted blue. Includes previous autoban reasons and bilingual AI helper.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2/anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2.zip",
+      "size": 1101032,
+      "sha256": "c237d900b64c3229d44c0739447477646bad68c73285f871d41c943836a3bfe3",
       "files": [
         "anthology-ai-helper/discord_bot.py",
         "anthology-ai-helper/discord_config.example.json",
