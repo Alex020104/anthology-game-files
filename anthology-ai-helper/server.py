@@ -16,6 +16,8 @@ HOST = os.environ.get("ANTHOLOGY_AI_HOST", "127.0.0.1")
 PORT = int(os.environ.get("ANTHOLOGY_AI_PORT", "8787"))
 MODEL = os.environ.get("ANTHOLOGY_AI_MODEL", "gpt-4.1-mini")
 RATE_SECONDS = int(os.environ.get("ANTHOLOGY_AI_RATE_SECONDS", "20"))
+ANTHOLOGY_CLOUD_AI_URL = os.environ.get("ANTHOLOGY_CLOUD_AI_URL", "").strip()
+ANTHOLOGY_CLOUD_AI_TOKEN = os.environ.get("ANTHOLOGY_CLOUD_AI_TOKEN", "").strip()
 MAX_QUESTION_CHARS = 700
 MAX_ANSWER_CHARS = 1100
 
@@ -429,6 +431,11 @@ def trim_answer(text: str) -> str:
 
 
 def ask_openai(question: str) -> str:
+    if ANTHOLOGY_CLOUD_AI_URL:
+        cloud_answer = ask_cloud_yura(question)
+        if cloud_answer:
+            return cloud_answer
+
     api_key = os.environ.get("OPENAI_API_KEY", "").strip()
     if not api_key:
         return local_fallback_answer(question)
@@ -479,6 +486,25 @@ def ask_openai(question: str) -> str:
             if content.get("type") in {"output_text", "text"} and isinstance(content.get("text"), str):
                 chunks.append(content["text"])
     return trim_answer("\n".join(chunks) or "AI helper: пустой ответ.")
+
+
+def ask_cloud_yura(question: str) -> str | None:
+    try:
+        headers = {
+            "Content-Type": "text/plain; charset=utf-8",
+        }
+        if ANTHOLOGY_CLOUD_AI_TOKEN:
+            headers["X-Anthology-Bridge-Token"] = ANTHOLOGY_CLOUD_AI_TOKEN
+        request = urllib.request.Request(
+            ANTHOLOGY_CLOUD_AI_URL,
+            data=question.encode("utf-8"),
+            headers=headers,
+            method="POST",
+        )
+        with urllib.request.urlopen(request, timeout=25) as response:
+            return trim_answer(response.read().decode("utf-8", errors="replace"))
+    except Exception:
+        return None
 
 
 class Handler(BaseHTTPRequestHandler):

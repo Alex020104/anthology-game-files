@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.16.2",
-  "notes": "Relay Chat: Ratniy built in as admin and banned users are highlighted blue. Includes previous autoban reasons and bilingual AI helper.",
+  "version": "2026.07.16.3",
+  "notes": "AI helper: added optional cloud bridge to Discord bot Yura Semetsky while preserving local fallback. Relay Chat package unchanged otherwise.",
   "game_packages": [
     {
       "id": "chernobyl-relay-chat-e1a7850496",
@@ -83,12 +83,12 @@
     {
       "id": "chernobyl-relay-chat-ai-helper-7bee15ccf7",
       "name": "Chernobyl Relay Chat + AI Helper",
-      "version": "2026.07.16.2",
-      "notes": "Relay Chat: Ratniy built in as admin and banned users are highlighted blue. Includes previous autoban reasons and bilingual AI helper.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2/anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.2.zip",
-      "size": 1101032,
-      "sha256": "c237d900b64c3229d44c0739447477646bad68c73285f871d41c943836a3bfe3",
+      "version": "2026.07.16.3",
+      "notes": "AI helper: added optional cloud bridge to Discord bot Yura Semetsky while preserving local fallback. Relay Chat package unchanged otherwise.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.3/anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.3.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-ai-helper-7bee15ccf7-2026.07.16.3.zip",
+      "size": 1101203,
+      "sha256": "e43a346870cc4509ee975818a446ef565a94043cefdbc542a928a027653bad4d",
       "files": [
         "anthology-ai-helper/discord_bot.py",
         "anthology-ai-helper/discord_config.example.json",
