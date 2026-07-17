@@ -449,7 +449,7 @@ def looks_like_followup(question: str) -> bool:
         "РєР°СЂРґР°РЅ", "Р°Р·РѕС‚", "СЃРѕРєРѕР»РѕРІ", "С‚РѕРїРѕР»СЊ", "СЃС‚СЂРµР»РѕРє", "РєСЂСѓРіР»РѕРІ", "РІРѕР»Рє",
         "РєРѕСЂРґРѕРЅ", "Р·Р°С‚РѕРЅ", "СЋРїРёС‚РµСЂ", "РїСЂРёРїСЏС‚СЊ", "Р°РіСЂРѕРїСЂРѕРј", "С…-8", "x-8",
     )
-    return (len(words) <= 9 or any(word in q for word in followup_words)) and not any(topic in q for topic in explicit_topic)
+    return any(word in q for word in followup_words) and not any(topic in q for topic in explicit_topic)
 
 
 def with_conversation_context(ip: str, question: str) -> str:
