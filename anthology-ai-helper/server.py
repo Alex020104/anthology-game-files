@@ -233,7 +233,26 @@ def local_story_answer_from_context(question: str, context: dict) -> str:
     return f"{title} ({source}): {trim_answer(answer)}"
 
 
+def quick_story_decision_answer(question: str) -> str | None:
+    q = (question or "").casefold().replace("ё", "е")
+    wolf_start = (
+        ("волк" in q or "петрух" in q or "шуст" in q)
+        and ("бандит" in q or "атп" in q or "соло" in q)
+        and ("тень" in q or "черноб" in q or "кордон" in q)
+    )
+    if wolf_start and any(word in q for word in ("убить", "убью", "перебить", "соло", "один")):
+        return (
+            "Первые шаги (Тень Чернобыля): Да, можно пройти в соло. "
+            "Сюжет от этого не ломается: ты сам зачищаешь бандитов на Кордоне/АТП, потом заходишь в двухэтажное здание, освобождаешь Шустрого, забираешь у него флешку и возвращаешься к Сидоровичу. "
+            "Если перед штурмом сказать Петрухе, что справишься один, он после боя даст дополнительную награду — пистолет Фора-12. Главное не убить сталкеров Волка/Петрухи, стрелять нужно по бандитам."
+        )
+    return None
+
+
 def local_fallback_answer(question: str) -> str:
+    quick_answer = quick_story_decision_answer(question)
+    if quick_answer:
+        return quick_answer
     full_context = full_sources.find_context(question, str(ROOT))
     if full_context:
         return local_story_answer_from_context(question, full_context)
@@ -520,6 +539,9 @@ def remember_conversation_context(ip: str, question: str, answer: str) -> None:
 
 
 def ask_openai(question: str) -> str:
+    quick_answer = quick_story_decision_answer(question)
+    if quick_answer:
+        return quick_answer
     full_context = full_sources.find_context(question, str(ROOT))
     if full_context:
         return local_story_answer_from_context(question, full_context)
