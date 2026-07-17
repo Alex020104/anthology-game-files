@@ -9,6 +9,8 @@ import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+import full_sources
+
 
 ROOT = Path(__file__).resolve().parent
 KNOWLEDGE_DIR = ROOT / "knowledge"
@@ -22,6 +24,7 @@ MAX_QUESTION_CHARS = 700
 MAX_ANSWER_CHARS = 1100
 
 last_request_by_ip: dict[str, float] = {}
+conversation_context_by_ip: dict[str, str] = {}
 
 
 def load_knowledge() -> str:
@@ -183,6 +186,9 @@ def local_fallback_answer_en(question: str) -> str:
 
 
 def local_fallback_answer(question: str) -> str:
+    full_answer = full_sources.find_answer(question, str(ROOT), max_chars=MAX_ANSWER_CHARS)
+    if full_answer:
+        return full_answer
     if is_english_question(question):
         return local_fallback_answer_en(question)
 
@@ -430,7 +436,45 @@ def trim_answer(text: str) -> str:
     return text
 
 
+def looks_like_followup(question: str) -> bool:
+    q = normalize_query(question)
+    words = re.findall(r"[a-zР°-СЏ0-9][a-zР°-СЏ0-9_+\\-]{1,}", q)
+    followup_words = (
+        "РѕРЅ", "РѕРЅР°", "РѕРЅРё", "РµРіРѕ", "РµРµ", "РµС‘", "РёС…", "С‚Р°Рј", "С‚СѓРґР°", "РґР°Р»СЊС€Рµ",
+        "РїРѕС‚РѕРј", "РїРѕСЃР»Рµ", "СЃРїР°СЃС‚Рё", "РјРµСЂС‚РІ", "РјС‘СЂС‚РІ", "РЅР°С€РµР»", "РЅР°С€С‘Р»",
+        "РєСѓРґР°", "РєР°Рє Р±С‹С‚СЊ", "С‡С‚Рѕ РґРµР»Р°С‚СЊ", "Р° РµСЃР»Рё", "Р° РјРѕР¶РЅРѕ", "РјРѕР¶РЅРѕ Р»Рё",
+    )
+    explicit_topic = (
+        "С‚РµРЅСЊ С‡РµСЂРЅРѕР±С‹Р»СЏ", "Р·РѕРІ РїСЂРёРїСЏС‚Рё", "С‡РёСЃС‚РѕРµ РЅРµР±Рѕ", "РіР»СѓС…Р°СЂСЊ", "С‚СЂРµРјРѕСЂ",
+        "РєР°СЂРґР°РЅ", "Р°Р·РѕС‚", "СЃРѕРєРѕР»РѕРІ", "С‚РѕРїРѕР»СЊ", "СЃС‚СЂРµР»РѕРє", "РєСЂСѓРіР»РѕРІ", "РІРѕР»Рє",
+        "РєРѕСЂРґРѕРЅ", "Р·Р°С‚РѕРЅ", "СЋРїРёС‚РµСЂ", "РїСЂРёРїСЏС‚СЊ", "Р°РіСЂРѕРїСЂРѕРј", "С…-8", "x-8",
+    )
+    return (len(words) <= 9 or any(word in q for word in followup_words)) and not any(topic in q for topic in explicit_topic)
+
+
+def with_conversation_context(ip: str, question: str) -> str:
+    previous = conversation_context_by_ip.get(ip, "")
+    if previous and looks_like_followup(question):
+        return f"{previous}\n\nРЈС‚РѕС‡РЅРµРЅРёРµ РёРіСЂРѕРєР°: {question}"
+    return question
+
+
+def remember_conversation_context(ip: str, question: str, answer: str) -> None:
+    compact_answer = re.sub(r"\s+", " ", answer or "").strip()
+    compact_question = re.sub(r"\s+", " ", question or "").strip()
+    conversation_context_by_ip[ip] = (
+        f"РџСЂРµРґС‹РґСѓС‰РёР№ РІРѕРїСЂРѕСЃ РёРіСЂРѕРєР°: {compact_question}\n"
+        f"РџСЂРµРґС‹РґСѓС‰РёР№ РѕС‚РІРµС‚ Р®СЂС‹: {compact_answer[:900]}"
+    )
+    if len(conversation_context_by_ip) > 300:
+        for key in list(conversation_context_by_ip)[:80]:
+            conversation_context_by_ip.pop(key, None)
+
+
 def ask_openai(question: str) -> str:
+    full_answer = full_sources.find_answer(question, str(ROOT), max_chars=MAX_ANSWER_CHARS)
+    if full_answer:
+        return trim_answer(full_answer)
     if ANTHOLOGY_CLOUD_AI_URL:
         cloud_answer = ask_cloud_yura(question)
         if cloud_answer:
@@ -538,7 +582,10 @@ class Handler(BaseHTTPRequestHandler):
         if len(question) > MAX_QUESTION_CHARS:
             question = question[:MAX_QUESTION_CHARS]
 
-        self.send_text(ask_openai(question))
+        effective_question = with_conversation_context(ip, question)
+        answer = ask_openai(effective_question)
+        remember_conversation_context(ip, question, answer)
+        self.send_text(answer)
 
     def send_text(self, text: str, status: int = 200) -> None:
         body = trim_answer(text).encode("utf-8")
