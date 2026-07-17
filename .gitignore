@@ -2,10 +2,11 @@
 webcache/
 *.log
 *.tmp
+__pycache__/
+*.pyc
 
 # Local release output
 release-build/
 dist/
 *.7z
 *.zip
-
