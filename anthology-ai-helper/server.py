@@ -185,10 +185,58 @@ def local_fallback_answer_en(question: str) -> str:
     )
 
 
+def split_sentences(text: str) -> list[str]:
+    cleaned = re.sub(r"\s+", " ", text or "").strip()
+    if not cleaned:
+        return []
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", cleaned) if s.strip()]
+
+
+def local_story_answer_from_context(question: str, context: dict) -> str:
+    title = context.get("title") or "Источник"
+    source = context.get("source") or "гайд"
+    text = context.get("text") or ""
+    q = (question or "").casefold().replace("ё", "е")
+    sentences = split_sentences(text)
+    direct = ""
+    if any(word in q for word in ("убить", "перебить", "застрелить", "атаковать")):
+        if re.search(r"\b(убить|перебить|расправ|атак|рейд|бой|бандит)", text.casefold().replace("ё", "е")):
+            direct = "Да, можно."
+        else:
+            direct = "В тексте гайда прямого варианта с убийством не подтверждено."
+    elif any(word in q for word in ("спасти", "жив", "выживет")):
+        low = text.casefold().replace("ё", "е")
+        if any(mark in low for mark in ("не удалось", "погиб", "мертв", "мёртв", "умер")):
+            direct = "Судя по гайду, нет — спасти не получится."
+        elif any(mark in low for mark in ("спасти", "выручить", "выживет", "освободить")):
+            direct = "Да, по гайду это можно сделать."
+    elif any(word in q for word in ("можно", "можно ли", "получится")):
+        direct = "По гайду — да, если выполнить описанный вариант." if sentences else ""
+
+    consequence_words = (
+        "если", "после", "когда", "в итоге", "тогда", "награ", "получ", "вариант",
+        "выберите", "придется", "придётся", "вернит", "отпуст", "начнут", "обыск",
+        "рейд", "перебить", "выкуп", "обмен",
+    )
+    picked = []
+    for sentence in sentences:
+        low = sentence.casefold().replace("ё", "е")
+        if any(word in low for word in consequence_words):
+            picked.append(sentence)
+        if len(picked) >= 4:
+            break
+    if not direct:
+        picked = sentences[:4]
+    elif not picked:
+        picked = sentences[:4]
+    answer = (" ".join([direct, " ".join(picked)]).strip() if direct else " ".join(picked).strip())
+    return f"{title} ({source}): {trim_answer(answer)}"
+
+
 def local_fallback_answer(question: str) -> str:
-    full_answer = full_sources.find_answer(question, str(ROOT), max_chars=MAX_ANSWER_CHARS)
-    if full_answer:
-        return full_answer
+    full_context = full_sources.find_context(question, str(ROOT))
+    if full_context:
+        return local_story_answer_from_context(question, full_context)
     if is_english_question(question):
         return local_fallback_answer_en(question)
 
@@ -472,9 +520,9 @@ def remember_conversation_context(ip: str, question: str, answer: str) -> None:
 
 
 def ask_openai(question: str) -> str:
-    full_answer = full_sources.find_answer(question, str(ROOT), max_chars=MAX_ANSWER_CHARS)
-    if full_answer:
-        return trim_answer(full_answer)
+    full_context = full_sources.find_context(question, str(ROOT))
+    if full_context:
+        return local_story_answer_from_context(question, full_context)
     if ANTHOLOGY_CLOUD_AI_URL:
         cloud_answer = ask_cloud_yura(question)
         if cloud_answer:
