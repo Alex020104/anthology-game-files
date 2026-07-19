@@ -1,5 +1,5 @@
 {
-  "version": "2026.07.19.4",
+  "version": "2026.07.19.5",
   "notes": "Обновление файлов игры: Chernobyl Relay Chat.exe.",
   "game_packages": [
     {
@@ -267,10 +267,10 @@
     {
       "id": "chernobyl-relay-chat-exe-9b2e449e42",
       "name": "Chernobyl Relay Chat.exe",
-      "version": "2026.07.19.4",
+      "version": "2026.07.19.5",
       "notes": "Обновление файлов игры: Chernobyl Relay Chat.exe.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4/anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4.zip",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.5/anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.5.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.5.zip",
       "size": 188104,
       "sha256": "5c7e47b93817eabb6a4eed590b3869acae340f16be0fc36f5582e132491c6e11",
       "files": [
