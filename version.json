@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.19.5",
-  "notes": "Обновление файлов игры: Chernobyl Relay Chat.exe.",
+  "version": "2026.07.19.6",
+  "notes": "Обновление файлов игры: Game files.",
   "game_packages": [
     {
       "id": "anthology-ai-helper-cloud-yura-d6dec61ab0",
@@ -275,6 +275,22 @@
       "sha256": "5c7e47b93817eabb6a4eed590b3869acae340f16be0fc36f5582e132491c6e11",
       "files": [
         "Chernobyl Relay Chat.exe"
+      ],
+      "removed_files": []
+    },
+    {
+      "id": "game-files-ffb191e9ed",
+      "name": "Game files",
+      "version": "2026.07.19.6",
+      "notes": "Обновление файлов игры: Game files.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-game-files-ffb191e9ed-2026.07.19.6/anthology-game-game-files-ffb191e9ed-2026.07.19.6.zip",
+      "asset_name": "anthology-game-game-files-ffb191e9ed-2026.07.19.6.zip",
+      "size": 217275,
+      "sha256": "2482ecae2022c0877b705e9b22f7330fb7916d1a8e4b0524f03e2d5d1f3579f2",
+      "files": [
+        "Chernobyl Relay Chat.exe",
+        "Chernobyl Relay Chat.exe.config",
+        "Chernobyl Relay Chat.pdb"
       ],
       "removed_files": []
     }
