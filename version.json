@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.19.3",
-  "notes": "Relay Chat full package: automod blocks messages instead of banning users; death messages use display nicknames.",
+  "version": "2026.07.19.4",
+  "notes": "Обновление файлов игры: Chernobyl Relay Chat.exe.",
   "game_packages": [
     {
       "id": "anthology-ai-helper-cloud-yura-d6dec61ab0",
@@ -261,6 +261,20 @@
         "GitHubUpdate.dll",
         "Meebey.SmartIrc4net.dll",
         "Octokit.dll"
+      ],
+      "removed_files": []
+    },
+    {
+      "id": "chernobyl-relay-chat-exe-9b2e449e42",
+      "name": "Chernobyl Relay Chat.exe",
+      "version": "2026.07.19.4",
+      "notes": "Обновление файлов игры: Chernobyl Relay Chat.exe.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4/anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-exe-9b2e449e42-2026.07.19.4.zip",
+      "size": 188104,
+      "sha256": "5c7e47b93817eabb6a4eed590b3869acae340f16be0fc36f5582e132491c6e11",
+      "files": [
+        "Chernobyl Relay Chat.exe"
       ],
       "removed_files": []
     }
