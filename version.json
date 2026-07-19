@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.19.1",
-  "notes": "AI helper now asks cloud Yura first, with local fallback. Adds cloud_config.json for Relay Chat bridge.",
+  "version": "2026.07.19.2",
+  "notes": "Relay Chat fix: automod now blocks messages instead of banning users; death messages use display nicknames.",
   "game_packages": [
     {
       "id": "anthology-ai-helper-cloud-yura-d6dec61ab0",
@@ -130,6 +130,20 @@
         "res/localization.xml",
         "res/localization_machine.xml",
         "res/snames.xml"
+      ],
+      "removed_files": []
+    },
+    {
+      "id": "chernobyl-relay-chat-113e2ec459",
+      "name": "Chernobyl Relay Chat",
+      "version": "2026.07.19.2",
+      "notes": "Relay Chat fix: automod now blocks messages instead of banning users; death messages use display nicknames.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-113e2ec459-2026.07.19.2/anthology-game-chernobyl-relay-chat-113e2ec459-2026.07.19.2.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-113e2ec459-2026.07.19.2.zip",
+      "size": 188104,
+      "sha256": "5c7e47b93817eabb6a4eed590b3869acae340f16be0fc36f5582e132491c6e11",
+      "files": [
+        "Chernobyl Relay Chat.exe"
       ],
       "removed_files": []
     },
