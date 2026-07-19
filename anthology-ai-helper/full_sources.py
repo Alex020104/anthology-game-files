@@ -180,6 +180,18 @@ def score_chunk(chunk: dict, tokens: list[str], question: str, game: str) -> int
     if game:
         score += 70 if game.casefold() in haystack else -90
     q = normalize(question)
+    source_norm = normalize(chunk.get("source", ""))
+    intro_chunk = (
+        title == source_norm
+        or "полное прохождение" in title
+        or "полное прохождение" in haystack[:260]
+        or "дополнительные квесты" in haystack[:260]
+    )
+    content_tokens = [token for token in tokens if token not in GAME_ALIAS_TOKENS and len(token) >= 4]
+    if intro_chunk and len(content_tokens) >= 2:
+        score -= 160
+    elif intro_chunk:
+        score -= 60
     if title and title in q and title != normalize(chunk.get("source", "")):
         score += 100
     for token in tokens:
@@ -200,7 +212,15 @@ def score_chunk(chunk: dict, tokens: list[str], question: str, game: str) -> int
             score += 90
         elif exact and exact in haystack:
             score += 35
-    for important in ("глухар", "тремор", "кровосос", "кардан", "азот", "химера", "ноутбук", "наемник", "соколов", "тополь", "пулемет", "кордон", "припят", "х-8", "скат"):
+    for important in (
+        "глухар", "тремор", "кровосос", "кардан", "азот", "химера", "ноутбук", "наемник",
+        "соколов", "тополь", "пулемет", "кордон", "припят", "х-8", "скат",
+        "волк", "петрух", "шуст", "сидорович", "проводник", "доктор", "призрак",
+        "стрелок", "крот", "круглов", "сахаров", "боров", "декодер", "монолит",
+        "агропром", "янтар", "радар", "чаэс", "х-16", "х-18", "бар", "свалк",
+        "долг", "свобод", "пуля", "лесник", "ренегат", "болот", "ноев", "лоцман",
+        "оазис", "зверобой", "вано", "зулус", "бродяга", "дегтярев", "ковальск",
+    ):
         if important in q:
             score += 35 if important in haystack else -12
     return score

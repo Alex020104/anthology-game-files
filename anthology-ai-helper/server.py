@@ -16,12 +16,31 @@ import full_sources
 
 ROOT = Path(__file__).resolve().parent
 KNOWLEDGE_DIR = ROOT / "knowledge"
+
+
+def load_cloud_config() -> dict[str, str]:
+    config_path = ROOT / "cloud_config.json"
+    if not config_path.exists():
+        return {}
+    try:
+        data = json.loads(config_path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    return {
+        "url": str(data.get("url", "") or "").strip(),
+        "token": str(data.get("token", "") or "").strip(),
+    }
+
+
+CLOUD_CONFIG = load_cloud_config()
 HOST = os.environ.get("ANTHOLOGY_AI_HOST", "127.0.0.1")
 PORT = int(os.environ.get("ANTHOLOGY_AI_PORT", "8787"))
 MODEL = os.environ.get("ANTHOLOGY_AI_MODEL", "gpt-4.1-mini")
 RATE_SECONDS = int(os.environ.get("ANTHOLOGY_AI_RATE_SECONDS", "20"))
-ANTHOLOGY_CLOUD_AI_URL = os.environ.get("ANTHOLOGY_CLOUD_AI_URL", "").strip()
-ANTHOLOGY_CLOUD_AI_TOKEN = os.environ.get("ANTHOLOGY_CLOUD_AI_TOKEN", "").strip()
+ANTHOLOGY_CLOUD_AI_URL = os.environ.get("ANTHOLOGY_CLOUD_AI_URL", "").strip() or CLOUD_CONFIG.get("url", "")
+ANTHOLOGY_CLOUD_AI_TOKEN = os.environ.get("ANTHOLOGY_CLOUD_AI_TOKEN", "").strip() or CLOUD_CONFIG.get("token", "")
 MAX_QUESTION_CHARS = 700
 MAX_ANSWER_CHARS = 1800
 
@@ -939,6 +958,11 @@ def remember_conversation_context(ip: str, question: str, answer: str) -> None:
 
 
 def ask_openai(question: str) -> str:
+    if ANTHOLOGY_CLOUD_AI_URL:
+        cloud_answer = ask_cloud_yura(question)
+        if cloud_answer:
+            return cloud_answer
+
     quick_answer = quick_story_decision_answer(question)
     if quick_answer:
         return quick_answer
@@ -951,11 +975,6 @@ def ask_openai(question: str) -> str:
     qa_answer = story_qa.find_answer(question, str(ROOT))
     if qa_answer:
         return trim_answer(qa_answer)
-
-    if ANTHOLOGY_CLOUD_AI_URL:
-        cloud_answer = ask_cloud_yura(question)
-        if cloud_answer:
-            return cloud_answer
 
     api_key = os.environ.get("OPENAI_API_KEY", "").strip()
     if not api_key:
