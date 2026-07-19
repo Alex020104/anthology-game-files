@@ -1,5 +1,5 @@
 {
-  "version": "2026.07.20.2",
+  "version": "2026.07.20.3",
   "notes": "Relay Chat full repair package: rebuilt executable, automod only blocks messages, death messages use player display nicknames.",
   "game_packages": [
     {
@@ -216,12 +216,12 @@
     {
       "id": "chernobyl-relay-chat-2b54f19c3b",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.20.2",
+      "version": "2026.07.20.3",
       "notes": "Relay Chat full repair package: rebuilt executable, automod only blocks messages, death messages use player display nicknames.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.2/anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.2.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.2.zip",
-      "size": 5777274,
-      "sha256": "1d11cb427512c57ff45c5d52ccbdc7e0b0cfee80e9b44bc10b45deb31b518426",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.3/anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.3.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.3.zip",
+      "size": 6460865,
+      "sha256": "49a9b24bafa45a57b6a5fe37b14f46d85beff12f075da1b066e30591af84dd34",
       "files": [
         "Chernobyl Relay Chat.exe",
         "Chernobyl Relay Chat.exe.config",
