@@ -1,6 +1,6 @@
 {
-  "version": "2026.07.20.4",
-  "notes": "Relay Chat executable rebuilt with embedded application icon; includes current moderation and display fixes.",
+  "version": "2026.07.23.1",
+  "notes": "Relay Chat UI update: Anthology-style borderless window and dark custom message scrollbar.",
   "game_packages": [
     {
       "id": "anthology-ai-helper-cloud-yura-d6dec61ab0",
@@ -216,12 +216,12 @@
     {
       "id": "chernobyl-relay-chat-2b54f19c3b",
       "name": "Chernobyl Relay Chat",
-      "version": "2026.07.20.4",
-      "notes": "Relay Chat executable rebuilt with embedded application icon; includes current moderation and display fixes.",
-      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.4/anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.4.zip",
-      "asset_name": "anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.20.4.zip",
-      "size": 6616398,
-      "sha256": "2d0ca889c3cd1d26cbee08c39d879ff3e567cba313f97a8cdd9a59d641eba568",
+      "version": "2026.07.23.1",
+      "notes": "Relay Chat UI update: Anthology-style borderless window and dark custom message scrollbar.",
+      "url": "https://github.com/Alex020104/anthology-game-files/releases/download/game-chernobyl-relay-chat-2b54f19c3b-2026.07.23.1/anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.23.1.zip",
+      "asset_name": "anthology-game-chernobyl-relay-chat-2b54f19c3b-2026.07.23.1.zip",
+      "size": 6620916,
+      "sha256": "c962c207c412aef1d13b4f4bede058e22d58c44255214a2d3aec305fa8179b61",
       "files": [
         "Chernobyl Relay Chat.exe",
         "Chernobyl Relay Chat.exe.config",
